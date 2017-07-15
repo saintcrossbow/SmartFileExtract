@@ -1,0 +1,11 @@
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\bin\Release\SmartFileExtract.exe.config
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\bin\Release\SmartFileExtract.exe
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\bin\Release\SmartFileExtract.pdb
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.frmInstall.resources
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.frmProgress.resources
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.frmStealthy.resources
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.frmTest.resources
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.Properties.Resources.resources
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.csproj.GenerateResource.Cache
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.exe
+C:\Users\erich\Documents\SmartFileExtract\SmartFileExtract\obj\Release\SmartFileExtract.pdb
