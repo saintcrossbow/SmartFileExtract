@@ -121,7 +121,7 @@ namespace SmartFileExtract
                             minCriteria.Append(String.Format("\r\nSmart File Extract Version {0}, Copyright (C) 2017 saintcrossbow@gmail.com", Application.ProductVersion));
                             minCriteria.Append("\r\nMinimum arguments have not been specified.");
                             minCriteria.Append("\r\nNeed at least 3: /drive, /file, and /copyto");
-                            minCriteria.Append("\r\n\r\nUse /help for cheatsheat");
+                            minCriteria.Append("\r\n\r\nUse /help for cheatsheet");
                             minCriteria.Append("\r\n\r\n");
                             AttachConsole(ATTACH_PARENT_PROCESS);
                             Console.Clear();
@@ -147,7 +147,7 @@ namespace SmartFileExtract
             cheatSheet.Append("\r\n/help            This cheatsheet of command parameters");
             cheatSheet.Append("\r\n/drive           Drives to search, single letter only");
             cheatSheet.Append("\r\n/file            File pattern to search, wildcards acceptable ");
-            cheatSheet.Append("\r\n/keyword         Look in file for plaintext (optional)");
+            cheatSheet.Append("\r\n/keyword         Look in file for plaintext (optional - and slows search)");
             cheatSheet.Append("\r\n/copyto          Copy found files to this location");
             cheatSheet.Append("\r\n/maxsec [n]      Cancel extract after n seconds (optional)");
             cheatSheet.Append("\r\n/maxmbs [n]      Cancel extract after n MBs copied (optional)");
@@ -160,8 +160,13 @@ namespace SmartFileExtract
             cheatSheet.Append("\r\n----------------------------------------------------------------------------");
             cheatSheet.Append("\r\nMultiple Arguments");
             cheatSheet.Append("\r\nMultiple drives, files, and keywords may be specified. Separate the values");
-            cheatSheet.Append("\r\nwith semicolons (e.g. /drive c;d /file *.txt;gen*.*");
-            cheatSheet.Append("\r\n\r\n");
+            cheatSheet.Append("\r\nwith semicolons (e.g. /drive c;d /file *.txt;gen*.*)");
+            cheatSheet.Append("\r\n----------------------------------------------------------------------------");
+            cheatSheet.Append("\r\nKey Notes");
+            cheatSheet.Append("\r\n- Files are copied only once (duplicate names are ignored)");
+            cheatSheet.Append("\r\n- Aggressive performance suppresses most screen output, use with discretion");
+            cheatSheet.Append("\r\n- Low impact performance takes 1-10 seconds randomly between searches and ");
+            cheatSheet.Append("\r\n  copies. As such, copies can take a long time, but may prevent alerts");
 
             // Writing to console from Windows app
             // http://www.csharp411.com/console-output-from-winforms-application/

@@ -118,18 +118,6 @@ namespace SmartFileExtract
             }
         }
 
-        // TODO:
-        // (x) Test file limit
-        // ( ) In cheat sheet note that file only copied once, duplicates ignored
-        // (x) Calculate total before copy
-        // (x) Start timer and abort if it goes for too long
-        // ( ) Note aggressive limits all processing and updates - may not see any updates at all
-        // ( ) Also note that low impact takes long time but might be good if you are targeting a pc and copying to network
-        // (x) Need faster search in binary
-        // (x) Create directory if it doesn't exist
-        // (x) Change to configurable curtain
-        // (x) Performance options: aggressive (no user input), standard (allow processing), low (delayed)
-        // (x) Curtain: Install, Corner on screen, None
 
         // Only target drive, files, and copy to are required
         public bool isReady()
