@@ -1,8 +1,20 @@
-Method of calling SmartFileExtractor is based on the existing EXE run posted on the Bash Bunny
-Wiki. Change the following:
-- payload.txt: change your file volume name for the bashbunny (if necessary)
+Method of calling SmartFileExtractor is based on the excellent work of IMcPwn: the ExecutableInstaller.
+See the BashBunny Wiki for the original version.
+
+Setup:
+- Copy SmartFileExtract to the root of the bashubunny
+- Change payload.txt:
+  a) Your file volume name for the bashbunny (if necessary) 
+  b) What kind of device you want the bunny to spoof.
   Note: Very much recommend you do this, otherwise will be picked up by forensics
-- e.cmd: change your options for the extract here
+- Change e.cmd: 
+  a) Change your options for Smart File Extract here.
+
+The default payload included in this distribution:
+- Looks to Forensics like a Lexar drive (but still called BashBunny)
+- Finds all files with a) the word secret or pass in the filename as well as b) any doc files
+- Reports status as a fake install window
+- Stops extract after 90 seconds or 500 MBs
 
 Good luck!
 
